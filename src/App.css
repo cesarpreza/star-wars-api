@@ -25,3 +25,8 @@ body {
 .table-container {
 	margin-top: 25px;
 }
+
+.pageContainer {
+	display: flex;
+	justify-content: center;
+}

@@ -1,11 +1,13 @@
-import React from 'react'
-import * as ReactBootstrap from 'react-bootstrap'
+import React from 'react';
+import * as ReactBootstrap from 'react-bootstrap';
 
-class CharacterTable extends React.Component {
-    render() {
+function CharacterTable(props) {
+
+    if (props.isLoading === true) {
+        return <ReactBootstrap.Spinner animation="border" />
+    } else {
         return (
             <div className='table-container'>
-                {this.props.isLoading ?
                     <table className='table table-bordered'>
                         <thead className="text-light">
                             <tr>
@@ -18,7 +20,7 @@ class CharacterTable extends React.Component {
                             </tr>
                         </thead>
                         <tbody className="text-light">
-                            {this.props.characterData.map(data => 
+                            {props.characterData.map(data => 
                                 <tr key={data.name}>
                                     <td> {data.name} </td>
                                     <td> {data.birth_year} </td>
@@ -28,11 +30,11 @@ class CharacterTable extends React.Component {
                                     <td> {data.species} </td>
                                 </tr>)}
                         </tbody>
-                        </table> :
-                    <ReactBootstrap.Spinner animation="border" />}
+                        </table>
             </div>
         )
-    }
-}
+    };
+    
+};
 
 export default CharacterTable
